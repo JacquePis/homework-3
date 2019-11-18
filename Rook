@@ -1,0 +1,30 @@
+package com.company;
+
+public class Rook extends Piece {
+    //Rook's name
+    public static final String NAME = "R";
+
+    //checking if it's white or not passing the isWhite() method to the super() method
+    public Rook(boolean isWhite) {
+        super(isWhite);
+    }
+
+    //override
+    //getting the name of the piece
+    public String getNameNative() {
+        return NAME;
+    }
+
+    //override
+    //checks whether the next move is valid or not
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if(super.isValid(board, fromX, fromY, toX, toY) == false)
+            return false;
+        if(toX == fromX)
+            return true;
+        if(toY == fromY)
+            return true;
+        return false;
+    }
+
+}
