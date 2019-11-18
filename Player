@@ -1,0 +1,22 @@
+package com.company;
+
+public class Player {
+    private final String name;
+    private final boolean isWhite;
+
+    public Player(String name, boolean isWhite) {
+        this.name = name;
+        this.isWhite = isWhite;
+    }
+
+    //gets the name
+    public String getName() {
+        return name;
+    }
+
+    //checks if it's white or not
+    public boolean isWhite() {
+        return isWhite;
+    }
+
+}
