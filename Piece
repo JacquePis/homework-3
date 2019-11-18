@@ -1,0 +1,35 @@
+package com.company;
+
+public abstract class Piece {
+    public static final boolean WHITE = true;
+    public static final boolean BLACK = false;
+
+    private final boolean isWhite;
+
+    //Piece's constructor
+    public Piece(boolean isWhite) {
+        this.isWhite = isWhite;
+    }
+
+    //gets the name
+    public String getName() {
+        if (isWhite)
+            return getNameNative();
+        return getNameNative().toLowerCase();
+    }
+
+    //checks if it's white or not
+    public boolean isWhite() {
+        return isWhite;
+    }
+
+    public abstract String getNameNative();
+
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY){
+        if(toX == fromX && toY == fromY)
+            return false; //cannot move nothing
+        if(toX < 0 || toX > 7 || fromX < 0 || fromX > 7 || toY < 0 || toY > 7 || fromY <0 || fromY > 7)
+            return false;
+        return true;
+    }
+}
