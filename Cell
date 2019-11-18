@@ -1,0 +1,41 @@
+package com.company;
+
+public class Cell {
+    private final int pLetter;
+    private final int pNumber;
+    private Piece piece;
+
+    //Cell's constructor number and letter being (x,y) coordinates
+    public Cell(int pNumber, int pLetter) {
+        this.pNumber = pNumber;
+        this.pLetter = pLetter;
+    }
+
+    //override
+    public String toString() {
+        if (piece != null)
+            return piece.getName();
+        return " ";
+    }
+
+    //geting the piece
+    public Piece getPiece() {
+        return piece;
+    }
+
+    //setting a piece to be another given piece
+    public void setPiece(Piece piece) {
+        this.piece = piece;
+    }
+
+    //get piece's correspoding letter
+    public int getpLetter() {
+        return pLetter;
+    }
+
+    //get piece's corresponding number
+    public int getpNumber() {
+        return pNumber;
+    }
+
+}
