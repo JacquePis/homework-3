@@ -1,0 +1,29 @@
+package com.company;
+
+public class King extends Piece {
+    //King's name
+    public static final String NAME = "K";
+
+    //checking if it's white or not passing the isWhite() method to the super() method
+    public King(boolean isWhite) {
+        super(isWhite);
+    }
+
+    //override
+    //getting the name of the piece
+    public String getNameNative() {
+        return NAME;
+    }
+
+    //override
+    //checks whether the next move is valid or not
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if(super.isValid(board, fromX, fromY, toX, toY) == false)
+            return false;
+        if(Math.sqrt(Math.pow(Math.abs((toX - fromX)),2)) + Math.pow(Math.abs((toY - fromY)), 2) != Math.sqrt(2)){
+            return false;
+        }
+        return false;
+    }
+
+}
