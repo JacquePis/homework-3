@@ -1,0 +1,42 @@
+package com.company;
+
+public class Move {
+    private final Cell start; //beginning
+    private final Cell end;   //end
+    private final Piece piece;
+
+    //Move's constructor
+    public Move(Piece piece, Cell start, Cell end) {
+        this.piece = piece;
+        this.start = start;
+        this.end = end;
+    }
+
+    //override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        String pieceName = "";
+        if (!Pawn.NAME.equalsIgnoreCase(piece.getName()))
+            pieceName = piece.getName();
+        result.append(pieceName + (char) (start.getpLetter() + (int) 'A') + (start.getpNumber()+1));
+        result.append("-");
+        result.append("" + (char) (end.getpLetter() + (int) 'A') + (end.getpNumber()+1));
+        return result.toString();
+    }
+
+    //getting the start
+    public Cell getStart() {
+        return start;
+    }
+
+    //getting the end
+    public Cell getEnd() {
+        return end;
+    }
+
+    //getting the piece
+    public Piece getPiece() {
+        return piece;
+    }
+
+}
