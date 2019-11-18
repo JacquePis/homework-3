@@ -1,0 +1,37 @@
+package com.company;
+
+public class Pawn extends Piece {
+    //Pawn's name
+    public static final String NAME = "P";
+
+    //checking if it's white or not passing the isWhite() method to the super() method
+    public Pawn(boolean isWhite) {
+        super(isWhite);
+    }
+
+    //override
+    //getting the name of the piece
+    public String getNameNative() {
+        return NAME;
+    }
+
+    //override
+    //checks whether the next move is valid or not
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if(super.isValid(board, fromX, fromY, toX, toY) == false)
+            return false;
+        if (toY == fromY + 1 && toX == fromX) {
+            return true;
+        }
+
+        //eating
+        Cell pawnTopRight = board.getCell(fromX + 1, fromY + 1);
+        Cell pawnTopLeft = board.getCell(fromX - 1, fromY + 1);
+
+        if ((pawnTopLeft.getPiece() != null || pawnTopRight.getPiece() != null)) {
+            return true;
+        }
+        return false;
+    }
+
+}
